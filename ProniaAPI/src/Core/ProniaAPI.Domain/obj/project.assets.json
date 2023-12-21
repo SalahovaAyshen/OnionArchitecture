@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
       "projectName": "ProniaAPI.Domain",
-      "projectPath": "C:\\Users\\hp\\Desktop\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

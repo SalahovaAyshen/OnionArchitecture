@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProniaAPI.Domain
-build_property.ProjectDir = C:\Users\hp\Desktop\ProniaAPI\src\Core\ProniaAPI.Domain\
+build_property.ProjectDir = C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

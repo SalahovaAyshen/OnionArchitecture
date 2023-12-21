@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProniaAPI.Presentation.props" />
+</Project>

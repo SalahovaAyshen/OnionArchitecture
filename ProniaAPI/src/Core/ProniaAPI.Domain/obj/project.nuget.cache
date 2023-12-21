@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qzbQvy9ukvZXCXnMSa2FLQtS9ltyHFWLlWB++f3CaVBZkFWzqlEJ2K5xeBIb/EE5XA+n4CDiOxYC4vYhBT+Tdw==",
+  "dgSpecHash": "b8Z3MuaW9FLaTyyeKIbvVggkFfvwH/QQirW+6CdBDuLMewUYFa3/bjGMnM9Va5hWEsACv6Ydf+oT3TcKgErasQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Desktop\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
+  "projectFilePath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Domain\\ProniaAPI.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

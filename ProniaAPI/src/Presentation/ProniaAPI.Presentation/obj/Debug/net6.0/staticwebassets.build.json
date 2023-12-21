@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1EpiQoj9nQHUZslU7E4K1XE8AQUX4bezDrJXArfdouU=",
+  "Source": "ProniaAPI.Presentation",
+  "BasePath": "_content/ProniaAPI.Presentation",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
