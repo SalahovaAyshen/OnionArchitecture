@@ -13,6 +13,8 @@ namespace ProniaAPI.Persistence.Contexts
         public DbSet<Category> Categories { get;}
         public DbSet<Color> Colors { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<ProductTag> ProductTags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

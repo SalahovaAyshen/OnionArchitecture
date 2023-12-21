@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProniaAPI.Application.Abstractions;
 using ProniaAPI.Application.Abstractions.Repositories;
 using ProniaAPI.Application.Abstractions.Services;
 using ProniaAPI.Persistence.Contexts;
@@ -21,6 +22,8 @@ namespace ProniaAPI.Persistence.ServiceRegistration
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(configuration.GetConnectionString("Default")));
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<ITagService, TagService>();
             return services;
         }
     }
