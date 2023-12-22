@@ -75,3 +75,6 @@ C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Prese
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

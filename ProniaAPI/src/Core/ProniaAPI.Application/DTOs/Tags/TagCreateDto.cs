@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProniaAPI.Application.DTOs.Tags
 {
-    public record TagCreateDto(string name);
+    public record TagCreateDto(string Name);
    
 }

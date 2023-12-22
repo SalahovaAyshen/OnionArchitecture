@@ -31,7 +31,8 @@ namespace ProniaAPI.Presentation.Controllers
         public async Task<IActionResult> Update(int id, string name)
         {
             if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
-            return StatusCode(StatusCodes.Status204NoContent,  _service.Update(id, name));
+            await _service.Update(id, name);
+            return StatusCode(StatusCodes.Status204NoContent);
         }
     }
 }

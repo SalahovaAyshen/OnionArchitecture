@@ -1,5 +1,6 @@
 using ProniaAPI.Persistence.ServiceRegistration;
 using ProniaAPI.Application.ServiceRegistration;
+using FluentValidation.AspNetCore;
 namespace ProniaAPI.Presentation
 {
     public class Program
