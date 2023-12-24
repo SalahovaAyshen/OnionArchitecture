@@ -18,8 +18,27 @@ namespace ProniaAPI.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>().HasQueryFilter(c => c.isDeleted == false);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
+        }
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entitites = ChangeTracker.Entries<BaseEntity>();
+            foreach (var entry in entitites)
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Modified:
+                        entry.Entity.ModifiedAt = DateTime.Now;
+                        break;
+                    case EntityState.Added:
+                        entry.Entity.CreatedAt = DateTime.Now;
+                        break;
+                   
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

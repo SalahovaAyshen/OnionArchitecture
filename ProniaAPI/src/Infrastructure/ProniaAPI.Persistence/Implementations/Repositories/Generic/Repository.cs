@@ -27,6 +27,7 @@ namespace ProniaAPI.Persistence.Implementations.Repositories
             int skip = 0,
             int take = 0,
             bool isTracking = true,
+            bool ignoreQuery=false,
             params string[] includes)
         {
             IQueryable<T> query = _table;
@@ -48,7 +49,7 @@ namespace ProniaAPI.Persistence.Implementations.Repositories
                     query = query.Include(includes[i]);
                 }
             }
-
+            if (ignoreQuery) query = query.IgnoreQueryFilters();
             return isTracking ? query : query.AsNoTracking();
         }
 
@@ -61,7 +62,11 @@ namespace ProniaAPI.Persistence.Implementations.Repositories
         {
             await _table.AddAsync(item);
         }
-
+        public void SoftDelete(T item)
+        {
+            item.isDeleted= true;
+            Update(item);
+        }
 
         public void Update(T item)
         {
@@ -78,6 +83,6 @@ namespace ProniaAPI.Persistence.Implementations.Repositories
             await _context.SaveChangesAsync();
         }
 
-
+       
     }
 }

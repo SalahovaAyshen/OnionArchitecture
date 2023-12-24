@@ -16,7 +16,6 @@ namespace ProniaAPI.Domain.Entities
         public BaseEntity()
         {
             CreatedBy = "ayshen.salahova";
-            CreatedAt = DateTime.Now;
         }
     }
 }
