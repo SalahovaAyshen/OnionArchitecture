@@ -23,7 +23,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
 
         public async Task<ICollection<ColorItemDto>> GetAllAsync(int page, int take)
         {
-            ICollection<Color> colors = await _repository.GetAll(skip: (page - 1) * take, take: take).ToListAsync();
+            ICollection<Color> colors = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
 
             ICollection<ColorItemDto> dtos = new List<ColorItemDto>();
             foreach (var color in colors)
@@ -44,7 +44,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
 
         public async Task Update(int id, string name)
         {
-            Color existed = await _repository.GetByIdAsync(id);
+            Color existed = await _repository.GetByIdAsync(id,true);
             if (existed == null) throw new Exception("Not Found Id");
             existed.Name = name;
             _repository.Update(existed);

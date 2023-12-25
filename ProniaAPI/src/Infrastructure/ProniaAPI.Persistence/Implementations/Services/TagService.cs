@@ -29,7 +29,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
 
         public async Task<ICollection<TagItemDto>> GetAllAsync(int page, int take)
         {
-            ICollection<Tag> tags = await _repository.GetAll(skip: (page - 1) * take, take: take).ToListAsync();
+            ICollection<Tag> tags = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
             return _mapper.Map<ICollection<TagItemDto>>(tags);
         }
 
@@ -41,7 +41,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
 
         public async Task Update(int id, string name)
         {
-            Tag existed = await _repository.GetByIdAsync(id);
+            Tag existed = await _repository.GetByIdAsync(id, true);
             if (existed == null) throw new Exception("Not Found Id");
             existed.Name = name;
             _repository.Update(existed);
