@@ -22,6 +22,7 @@ namespace ProniaAPI.Application.Abstractions.Repositories.Generic
             bool isTracking = true,
             bool ignoreQuery=false,
             params string[] includes);
+        Task<bool> IsExisted(Expression<Func<T, bool>> expression);
         Task<T> GetByIdAsync(
             int id, 
             bool isTracking = true,

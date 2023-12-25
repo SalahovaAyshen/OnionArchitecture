@@ -57,6 +57,10 @@ namespace ProniaAPI.Persistence.Implementations.Repositories
             return query;
         }
 
+        public async Task<bool> IsExisted(Expression<Func<T, bool>> expression)
+        {
+           return await _table.AnyAsync(expression);
+        }
         public async Task<T> GetByIdAsync(int id, bool isTracking = true, bool ignoreQuery = false, params string[] includes)
         {
             IQueryable<T> query = _table.Where(x=>x.Id==id);

@@ -10,5 +10,7 @@ namespace ProniaAPI.Application.Abstractions.Services
     public interface IProductService
     {
         Task<IEnumerable<ProductItemDto>> GetAll(int page, int take);
+        Task<ProductGetDto> GetByIdAsync(int id);
+        Task CreateAsync(ProductCreateDto createDto);
     }
 }
