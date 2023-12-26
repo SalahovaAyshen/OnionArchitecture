@@ -32,5 +32,19 @@ namespace ProniaAPI.Presentation.Controllers
             await _service.CreateAsync(createDto);
             return StatusCode(StatusCodes.Status200OK);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, ProductUpdateDto updateDto)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.UpdateAsync(id, updateDto);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.Delete(id);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
     }
 }

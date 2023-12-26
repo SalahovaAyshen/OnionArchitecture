@@ -65,5 +65,73 @@ namespace ProniaAPI.Persistence.Implementations.Services
             await _repository.AddAsync(product);
             await _repository.SaveChangesAsync();
         }
+        public async Task UpdateAsync(int id, ProductUpdateDto dto)
+        {
+            Product existed = await _repository.GetByIdAsync(id, includes:nameof(Product.ProductColors));
+            if (existed is null) throw new Exception("Not found product id");
+            if(dto.Name!=existed.Name)
+                if (await _repository.IsExisted(x => x.Name == dto.Name)) throw new Exception("Such a product name already exists");
+            if (dto.CategoryId != existed.CategoryId)
+                if (!await _categoryRepository.IsExisted(x => x.Id == dto.CategoryId)) throw new Exception("Not Found Category Id");
+            existed = _mapper.Map(dto,existed);
+
+            
+            if(dto.ColorIds is not null)
+            {
+                foreach (var colorId in dto.ColorIds)
+                {
+                    if (!existed.ProductColors.Any(pc => pc.ColorId == colorId))
+                    {
+                        if (!await _colorRepository.IsExisted(x => x.Id == colorId)) throw new Exception("Not Found color Id");
+                        existed.ProductColors.Add(new ProductColor { ColorId = colorId });
+                    }
+                }
+                existed.ProductColors = existed.ProductColors.Where(pc => dto.ColorIds.Any(colId => pc.ColorId == colId)).ToList();
+
+            }
+            else
+                existed.ProductColors = new List<ProductColor>();
+            if (dto.TagIds is not null)
+            {
+                foreach (var tagId in dto.TagIds)
+                {
+                    if (!existed.ProductTags.Any(pc => pc.TagId == tagId))
+                    {
+                        if (!await _tagRepository.IsExisted(x => x.Id == tagId)) throw new Exception("Not Found color Id");
+                        existed.ProductTags.Add(new ProductTag { TagId = tagId });
+                    }
+                }
+                existed.ProductTags = existed.ProductTags.Where(pc => dto.TagIds.Any(tId => pc.TagId == tId)).ToList();
+
+            }
+            else
+                existed.ProductTags = new List<ProductTag>();
+
+            _repository.Update(existed);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task SoftDelete(int id)
+        {
+            Product existed = await _repository.GetByIdAsync(id);
+            if (existed is null) throw new Exception("Not found product id");
+            _repository.SoftDelete(existed);
+           await _repository.SaveChangesAsync();
+
+        }
+        public async Task ReverseDelete(int id)
+        {
+            Product existed = await _repository.GetByIdAsync(id);
+            if (existed is null) throw new Exception("Not found product id");
+            _repository.ReverseDelete(existed);
+            await _repository.SaveChangesAsync();
+
+        }
+        public async Task Delete(int id)
+        {
+            Product existed = await _repository.GetByIdAsync(id,ignoreQuery:true);
+            if (existed is null) throw new Exception("Not found product id");
+            _repository.Delete(existed);
+            await _repository.SaveChangesAsync();
+        }
     }
 }

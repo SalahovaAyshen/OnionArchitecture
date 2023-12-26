@@ -12,5 +12,10 @@ namespace ProniaAPI.Application.Abstractions.Services
         Task<IEnumerable<ProductItemDto>> GetAll(int page, int take);
         Task<ProductGetDto> GetByIdAsync(int id);
         Task CreateAsync(ProductCreateDto createDto);
+        Task UpdateAsync(int id, ProductUpdateDto dto);
+        Task SoftDelete(int id);
+        Task ReverseDelete(int id);
+        Task Delete(int id);
+
     }
 }
