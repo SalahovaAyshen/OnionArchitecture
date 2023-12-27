@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ProniaAPI.Domain.Entities;
 using ProniaAPI.Persistence.Common;
 using System.Reflection;
@@ -6,7 +7,7 @@ using System.Reflection;
 
 namespace ProniaAPI.Persistence.Contexts
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options) { }
         

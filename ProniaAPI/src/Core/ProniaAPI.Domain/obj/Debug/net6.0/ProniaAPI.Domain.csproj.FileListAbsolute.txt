@@ -10,3 +10,4 @@ C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\obj\De
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\obj\Debug\net6.0\refint\ProniaAPI.Domain.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\obj\Debug\net6.0\ProniaAPI.Domain.pdb
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\obj\Debug\net6.0\ref\ProniaAPI.Domain.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Core\ProniaAPI.Domain\obj\Debug\net6.0\ProniaAPI.Domain.csproj.AssemblyReference.cache
