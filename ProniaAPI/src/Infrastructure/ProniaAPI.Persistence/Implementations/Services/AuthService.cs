@@ -22,6 +22,9 @@ namespace ProniaAPI.Persistence.Implementations.Services
             _userManager = userManager;
             _mapper = mapper;
         }
+
+      
+
         public async Task Register(RegisterDto registerDto)
         {
             if (await _userManager.Users.AnyAsync(u => u.UserName == registerDto.UserName || u.Email == registerDto.Email)) throw new Exception("Username or email must be unique");
@@ -38,6 +41,19 @@ namespace ProniaAPI.Persistence.Implementations.Services
                 }
                 throw new Exception(stringBuilder.ToString());
             }
+        }
+
+
+        public async Task Login(LogInDto logInDto)
+        {
+            AppUser user = await _userManager.FindByNameAsync(logInDto.UserNameOrEmail);
+            if(user is null)
+            {
+                user = await _userManager.FindByEmailAsync(logInDto.UserNameOrEmail);
+                if (user is null) throw new Exception("Username, Email  or Password is incorrect");
+            }
+            if (!await _userManager.CheckPasswordAsync(user, logInDto.Password)) 
+                throw new Exception("Username, Email  or Password is incorrect");
         }
     }
 }
