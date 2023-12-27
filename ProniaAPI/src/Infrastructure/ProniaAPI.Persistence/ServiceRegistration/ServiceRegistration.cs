@@ -55,6 +55,9 @@ namespace ProniaAPI.Persistence.ServiceRegistration
 
             services.AddScoped<IColorRepository, ColorRepository>();
             services.AddScoped<IColorService, ColorService>();
+
+            services.AddScoped<IAuthService, AuthService>();
+
             return services;
         }
     }
