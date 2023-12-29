@@ -21,5 +21,11 @@ namespace ProniaAPI.Presentation.Controllers
             await _service.Register(registerDto);
             return StatusCode(StatusCodes.Status201Created);
         }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> Login([FromForm]LogInDto loginDto)
+        {
+            
+            return StatusCode(StatusCodes.Status200OK, await _service.Login(loginDto));
+        }
     }
 }

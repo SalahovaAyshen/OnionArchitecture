@@ -10,6 +10,6 @@ namespace ProniaAPI.Application.Abstractions.Services
     public interface IAuthService
     {
         Task Register(RegisterDto registerDto);
-        Task Login(LogInDto logInDto);
+        Task<string> Login(LogInDto logInDto);
     }
 }
