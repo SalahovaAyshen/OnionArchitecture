@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProniaAPI.Application.Abstractions.Services;
 using ProniaAPI.Application.DTOs.Categories;
@@ -8,6 +9,7 @@ namespace ProniaAPI.Presentation.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class TagsController : ControllerBase
     {
         private readonly ITagService _service;
