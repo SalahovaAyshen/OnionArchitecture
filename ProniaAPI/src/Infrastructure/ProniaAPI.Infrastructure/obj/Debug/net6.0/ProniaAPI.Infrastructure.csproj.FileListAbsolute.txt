@@ -10,3 +10,9 @@ C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Inf
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\obj\Debug\net6.0\refint\ProniaAPI.Infrastructure.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\obj\Debug\net6.0\ProniaAPI.Infrastructure.pdb
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\obj\Debug\net6.0\ref\ProniaAPI.Infrastructure.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\bin\Debug\net6.0\ProniaAPI.Application.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\bin\Debug\net6.0\ProniaAPI.Domain.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\bin\Debug\net6.0\ProniaAPI.Application.pdb
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\bin\Debug\net6.0\ProniaAPI.Domain.pdb
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\obj\Debug\net6.0\ProniaAPI.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Infrastructure\ProniaAPI.Infrastructure\obj\Debug\net6.0\ProniaAPI.Infrastructure.csproj.CopyComplete

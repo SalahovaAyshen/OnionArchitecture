@@ -1,4 +1,5 @@
-﻿using ProniaAPI.Application.DTOs.Users;
+﻿using ProniaAPI.Application.DTOs.Tokens;
+using ProniaAPI.Application.DTOs.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace ProniaAPI.Application.Abstractions.Services
     public interface IAuthService
     {
         Task Register(RegisterDto registerDto);
-        Task<string> Login(LogInDto logInDto);
+        Task<TokenResponseDto> Login(LogInDto logInDto);
     }
 }

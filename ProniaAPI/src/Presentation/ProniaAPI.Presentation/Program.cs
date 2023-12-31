@@ -1,5 +1,6 @@
 using ProniaAPI.Persistence.ServiceRegistration;
 using ProniaAPI.Application.ServiceRegistration;
+using ProniaAPI.Infrastructure.ServiceRegistration;
 using FluentValidation.AspNetCore;
 namespace ProniaAPI.Presentation
 {
@@ -17,6 +18,7 @@ namespace ProniaAPI.Presentation
             builder.Services.AddSwaggerGen();
             builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddApplicationServices();
+            builder.Services.AddInfrastructureServices();
 
             var app = builder.Build();
 

@@ -83,3 +83,5 @@ C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Prese
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\ProniaAPI.Infrastructure.dll
+C:\Users\hp\Desktop\OnionArchitecture\ProniaAPI\src\Presentation\ProniaAPI.Presentation\bin\Debug\net6.0\ProniaAPI.Infrastructure.pdb

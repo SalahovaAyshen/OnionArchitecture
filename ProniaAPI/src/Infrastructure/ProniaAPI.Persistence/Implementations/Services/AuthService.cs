@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ProniaAPI.Application.Abstractions.Services;
+using ProniaAPI.Application.DTOs.Tokens;
 using ProniaAPI.Application.DTOs.Users;
 using ProniaAPI.Domain.Entities;
 using System;
@@ -20,13 +21,13 @@ namespace ProniaAPI.Persistence.Implementations.Services
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
-        private readonly IConfiguration _config;
+        private readonly ITokenHandler _handler;
 
-        public AuthService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration config)
+        public AuthService(UserManager<AppUser> userManager, IMapper mapper, ITokenHandler handler)
         {
             _userManager = userManager;
             _mapper = mapper;
-            _config = config;
+            _handler = handler;
         }
 
       
@@ -50,7 +51,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
         }
 
 
-        public async Task<string> Login(LogInDto logInDto)
+        public async Task<TokenResponseDto> Login(LogInDto logInDto)
         {
             AppUser user = await _userManager.FindByNameAsync(logInDto.UserNameOrEmail);
             if(user is null)
@@ -61,28 +62,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
             if (!await _userManager.CheckPasswordAsync(user, logInDto.Password)) 
                 throw new Exception("Username, Email  or Password is incorrect");
 
-            ICollection<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.GivenName, user.Name),
-                new Claim(ClaimTypes.Surname, user.Surname)
-             };
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecurityKey"]));
-
-            SigningCredentials credentials = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-
-            JwtSecurityToken token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
-                notBefore:DateTime.Now,
-                expires:DateTime.Now.AddMinutes(60),
-                claims:claims,
-                signingCredentials:credentials
-                );
-            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-            return handler.WriteToken(token);
+            return _handler.CreateToken(user, 60);
             
         }
     }

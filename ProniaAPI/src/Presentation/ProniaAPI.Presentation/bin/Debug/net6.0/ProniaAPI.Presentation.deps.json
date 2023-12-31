@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "6.0.25",
           "ProniaAPI.Application": "1.0.0",
+          "ProniaAPI.Infrastructure": "1.0.0",
           "ProniaAPI.Persistence": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -621,6 +622,15 @@
           "ProniaAPI.Domain.dll": {}
         }
       },
+      "ProniaAPI.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ProniaAPI.Application": "1.0.0",
+          "System.IdentityModel.Tokens.Jwt": "6.8.0"
+        },
+        "runtime": {
+          "ProniaAPI.Infrastructure.dll": {}
+        }
+      },
       "ProniaAPI.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.25",
@@ -1051,6 +1061,11 @@
       "sha512": ""
     },
     "ProniaAPI.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProniaAPI.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

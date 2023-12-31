@@ -1050,6 +1050,20 @@
           "bin/placeholder/ProniaAPI.Domain.dll": {}
         }
       },
+      "ProniaAPI.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ProniaAPI.Application": "1.0.0",
+          "System.IdentityModel.Tokens.Jwt": "6.8.0"
+        },
+        "compile": {
+          "bin/placeholder/ProniaAPI.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProniaAPI.Infrastructure.dll": {}
+        }
+      },
       "ProniaAPI.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2791,6 +2805,11 @@
       "path": "../../Core/ProniaAPI.Domain/ProniaAPI.Domain.csproj",
       "msbuildProject": "../../Core/ProniaAPI.Domain/ProniaAPI.Domain.csproj"
     },
+    "ProniaAPI.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/ProniaAPI.Infrastructure/ProniaAPI.Infrastructure.csproj",
+      "msbuildProject": "../../Infrastructure/ProniaAPI.Infrastructure/ProniaAPI.Infrastructure.csproj"
+    },
     "ProniaAPI.Persistence/1.0.0": {
       "type": "project",
       "path": "../../Infrastructure/ProniaAPI.Persistence/ProniaAPI.Persistence.csproj",
@@ -2801,6 +2820,7 @@
     "net6.0": [
       "Microsoft.EntityFrameworkCore.Design >= 6.0.25",
       "ProniaAPI.Application >= 1.0.0",
+      "ProniaAPI.Infrastructure >= 1.0.0",
       "ProniaAPI.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -2839,6 +2859,9 @@
           "projectReferences": {
             "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Application\\ProniaAPI.Application.csproj": {
               "projectPath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Core\\ProniaAPI.Application\\ProniaAPI.Application.csproj"
+            },
+            "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Infrastructure\\ProniaAPI.Infrastructure\\ProniaAPI.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Infrastructure\\ProniaAPI.Infrastructure\\ProniaAPI.Infrastructure.csproj"
             },
             "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Infrastructure\\ProniaAPI.Persistence\\ProniaAPI.Persistence.csproj": {
               "projectPath": "C:\\Users\\hp\\Desktop\\OnionArchitecture\\ProniaAPI\\src\\Infrastructure\\ProniaAPI.Persistence\\ProniaAPI.Persistence.csproj"
