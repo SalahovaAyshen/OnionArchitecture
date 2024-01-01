@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProniaAPI.Application.Abstractions.Repositories;
 using ProniaAPI.Application.Abstractions.Services;
 using ProniaAPI.Application.DTOs.Categories;
+using ProniaAPI.Application.DTOs.Products;
 using ProniaAPI.Domain.Entities;
 
 namespace ProniaAPI.Persistence.Implementations.Services
@@ -24,11 +25,16 @@ namespace ProniaAPI.Persistence.Implementations.Services
             ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
             return _mapper.Map<ICollection<CategoryItemDto>>(categories); 
         }
-
+        public async Task<CategoryItemDto> GetById(int id)
+        {
+            Category category = await _repository.GetByIdAsync(id);
+            if (category is null) throw new Exception("Not Found");
+            return _mapper.Map<CategoryItemDto>(category);
+        }
         public async Task Create(CategoryCreateDto categoryDto)
         {
             await _repository.AddAsync(_mapper.Map<Category>(categoryDto));
-             _repository.SaveChangesAsync();
+             await _repository.SaveChangesAsync();
         }
 
         public async Task Update(int id, string name)
@@ -47,5 +53,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
             _repository.SoftDelete(category);
             await _repository.SaveChangesAsync();  
         }
+
+        
     }
 }

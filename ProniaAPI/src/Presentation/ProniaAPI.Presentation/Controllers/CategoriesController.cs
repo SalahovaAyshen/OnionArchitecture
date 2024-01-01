@@ -22,6 +22,12 @@ namespace ProniaAPI.Presentation.Controllers
         {
             return StatusCode(StatusCodes.Status200OK, await _service.GetAllAsync(page, take));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            if(id<=0) return StatusCode(StatusCodes.Status400BadRequest);
+            return StatusCode(StatusCodes.Status200OK, await _service.GetById(id));
+        }
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CategoryCreateDto createDTO)
         {
