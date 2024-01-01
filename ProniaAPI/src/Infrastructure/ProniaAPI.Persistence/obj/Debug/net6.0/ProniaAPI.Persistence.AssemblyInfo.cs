@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProniaAPI.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f51527093a396102d96cee38e257013fe8bf23af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5be5635eb34c340dc0186529593efbba85277933")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProniaAPI.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProniaAPI.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

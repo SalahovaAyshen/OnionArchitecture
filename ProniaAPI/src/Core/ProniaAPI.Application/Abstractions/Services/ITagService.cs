@@ -11,7 +11,9 @@ namespace ProniaAPI.Application.Abstractions.Services
     public interface ITagService
     {
         Task<ICollection<TagItemDto>> GetAllAsync(int page, int take);
+        Task<TagItemDto> GetByIdAsync(int id);
         Task Create(TagCreateDto tagDto);
         Task Update(int id, string name);
+        Task Delete(int id);
     }
 }

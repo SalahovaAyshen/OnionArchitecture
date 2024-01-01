@@ -23,6 +23,12 @@ namespace ProniaAPI.Presentation.Controllers
         {
             return StatusCode(StatusCodes.Status200OK, await _service.GetAllAsync(page, take));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            if (id < 0) return StatusCode(StatusCodes.Status400BadRequest);
+            return StatusCode(StatusCodes.Status200OK, await _service.GetByIdAsync(id));
+        }
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] TagCreateDto createDTO)
         {
@@ -35,6 +41,13 @@ namespace ProniaAPI.Presentation.Controllers
         {
             if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
             return StatusCode(StatusCodes.Status204NoContent, _service.Update(id, name));
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if(id<=0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.Delete(id);
+            return StatusCode(StatusCodes.Status204NoContent);
         }
     }
 }
