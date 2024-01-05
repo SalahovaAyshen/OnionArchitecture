@@ -58,6 +58,9 @@ namespace ProniaAPI.Persistence.ServiceRegistration
 
             services.AddScoped<IAuthService, AuthService>();
 
+            services.AddScoped<AppDbContextInitializer>();
+
+
             return services;
         }
     }

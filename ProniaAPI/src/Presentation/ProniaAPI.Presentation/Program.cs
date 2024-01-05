@@ -3,6 +3,7 @@ using ProniaAPI.Application.ServiceRegistration;
 using ProniaAPI.Infrastructure.ServiceRegistration;
 using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
+using ProniaAPI.Persistence.Contexts;
 namespace ProniaAPI.Presentation
 {
     public class Program
@@ -55,6 +56,15 @@ namespace ProniaAPI.Presentation
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            using(var scope = app.Services.CreateScope())
+            {
+                var initializer = scope.ServiceProvider.GetRequiredService<AppDbContextInitializer>();
+                initializer.InitializeDbContext().Wait();
+                initializer.CreateRoleAsync().Wait();   
+                initializer.InitializeAdmin().Wait();
+            }
+
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
