@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProniaAPI.Application.Abstractions.Services;
 using ProniaAPI.Application.DTOs.Categories;
+using ProniaAPI.Domain.Enums;
 
 namespace ProniaAPI.Presentation.Controllers
 {
@@ -23,6 +24,8 @@ namespace ProniaAPI.Presentation.Controllers
             return StatusCode(StatusCodes.Status200OK, await _service.GetAllAsync(page, take));
         }
         [HttpGet("{id}")]
+
+        [Authorize(Roles = nameof(UserRole.Admin))]
         public async Task<IActionResult> GetById(int id)
         {
             if(id<=0) return StatusCode(StatusCodes.Status400BadRequest);

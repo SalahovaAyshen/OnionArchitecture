@@ -21,16 +21,9 @@ namespace ProniaAPI.Infrastructure.Implementations.Services
         {
             _config = config;
         }
-        public TokenResponseDto CreateToken(AppUser user, int minutes)
+        public TokenResponseDto CreateToken(AppUser user, IEnumerable<Claim> claims,int minutes)
         {
-            ICollection<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.GivenName, user.Name),
-                new Claim(ClaimTypes.Surname, user.Surname)
-             };
+           
             SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecurityKey"]));
 
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

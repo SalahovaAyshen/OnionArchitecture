@@ -7,6 +7,7 @@ using ProniaAPI.Application.Abstractions.Services;
 using ProniaAPI.Application.DTOs.Tokens;
 using ProniaAPI.Application.DTOs.Users;
 using ProniaAPI.Domain.Entities;
+using ProniaAPI.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -48,6 +49,7 @@ namespace ProniaAPI.Persistence.Implementations.Services
                 }
                 throw new Exception(stringBuilder.ToString());
             }
+            await _userManager.AddToRoleAsync(user, UserRole.Member.ToString());
         }
 
 
@@ -62,7 +64,21 @@ namespace ProniaAPI.Persistence.Implementations.Services
             if (!await _userManager.CheckPasswordAsync(user, logInDto.Password)) 
                 throw new Exception("Username, Email  or Password is incorrect");
 
-            return _handler.CreateToken(user, 60);
+
+            ICollection<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.GivenName, user.Name),
+                new Claim(ClaimTypes.Surname, user.Surname)
+             };
+            foreach (var item in await _userManager.GetRolesAsync(user))
+            {
+
+                claims.Add(new Claim(ClaimTypes.Role, item));
+            }
+            return _handler.CreateToken(user,claims, 60);
             
         }
     }
