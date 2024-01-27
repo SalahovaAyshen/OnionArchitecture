@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +39,14 @@ namespace ProniaAPI.Infrastructure.Implementations.Services
                 );
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
             return new TokenResponseDto(handler.WriteToken(token),user.UserName,token.ValidTo);
+        }
+        public string CreateRefreshToken()
+        {
+            //byte[] bytes = new byte[32];
+            //var random = RandomNumberGenerator.Create();
+            //random.GetBytes(bytes);
+            //return Convert.ToBase64String(bytes);
+            return Guid.NewGuid().ToString();
         }
     }
 }

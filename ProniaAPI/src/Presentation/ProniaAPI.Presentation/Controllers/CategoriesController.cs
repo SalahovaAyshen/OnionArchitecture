@@ -13,10 +13,12 @@ namespace ProniaAPI.Presentation.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _service;
+        private readonly ITokenHandler _handler;
 
-        public CategoriesController(ICategoryService service)
+        public CategoriesController(ICategoryService service, ITokenHandler handler)
         {
             _service = service;
+            _handler = handler;
         }
         [HttpGet]
         public async Task<IActionResult> Get(int page = 0, int take = 0)
@@ -37,7 +39,12 @@ namespace ProniaAPI.Presentation.Controllers
 
             return StatusCode(StatusCodes.Status201Created, _service.Create(createDTO));
         }
+        [HttpGet("[Action]")]
 
+        public async Task<IActionResult> Task()
+        {
+            return Ok(_handler.CreateRefreshToken());
+        }
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, string name)
         {

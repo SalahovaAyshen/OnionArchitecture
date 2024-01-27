@@ -12,5 +12,6 @@ namespace ProniaAPI.Application.Abstractions.Services
     public interface ITokenHandler
     {
         TokenResponseDto CreateToken(AppUser user,IEnumerable<Claim> claims, int minutes);
+        string CreateRefreshToken();
     }
 }
